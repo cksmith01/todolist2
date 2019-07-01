@@ -1,0 +1,20 @@
+CREATING A BASIC REACT APPLICATION ...
+npm create-react-app [app_name]
+
+ADDING REDUX TO THE APP...
+npm i redux react-redux redux-thunk
+
+Steps to integrating Redux
+1. adding redux through the command above
+2. create following items...
+    - actions (folder to hold component actions)
+    - reducers (folder to hold the code that determines how to
+        change state based on actions of a particular component)
+    - components (folder to hold files that define components)
+    - store.js
+
+Routing
+    npm install react-router-dom
+
+    import { BrowserRouter, Route, Switch } from 'react-router-dom';
+    import { NavLink } from 'react-router-dom';

@@ -1,32 +1,160 @@
-.App {
+@import url('https://fonts.googleapis.com/css?family=Changa:800');
+body {
+  background-color: #eee;
+  color: black;
+  font-family: sans-serif;
+  font-size: 10pt;
+  margin: 5pt;
+}
+label {
+  font-weight: bold;
+}
+input {
+  border-radius: 4px;
+  background-color: #fff;
+  font-family: sans-serif;
+  font-size: 10pt;
+  margin: 10pt;
+  border:1px solid #ccc;
+  padding: 2px;
+}
+input:hover {
+  box-shadow: 1px 1px rgba(0,0,0,0.2);
+  background-color: #ffffee;
+  border:1px solid #999;
+  color: #000;
+}
+textarea {
+  border-radius: 4px;
+  font-family: sans-serif;
+  font-size: 10pt;
+  margin: 10pt;
+  border:1px solid #ccc;
+}
+textarea:hover {
+  box-shadow: 1px 1px rgba(0,0,0,0.2);
+  background-color: #ffffee;
+  border:1px solid #999;
+  color: #000;
+}
+button {
+  color: #666;
+  margin: 5pt 5pt 5pt 5pt;
+  border-radius: 5px;
+  padding: 7px 35px;
+  font-family: sans-serif;
+  font-size: 10pt;
+  font-weight: bold;
+  cursor: pointer;
+  background-image: linear-gradient(#fff, #eee, #ddd);
+}
+button:hover {
+  box-shadow: 1px 1px rgba(0,0,0,0.2);
+  border-color: #999;
+  color: #000;
+}
+
+fieldset {
+  border: 0px;
+}
+input, label {
+  margin: 5pt;
+  padding: 5pt;
+  display:block;
+}
+textarea, label {
+  margin: 5pt;
+  padding: 5pt;
+  display:block;
+}
+hr {
+  border-top: 1px #cccccc solid;
+}
+/* ---------------------------- */
+#container {
+  /*border: 1px orange dotted;*/
+  padding: 16px;
+  margin: 40px 10px 10px 10px;
+}
+.navBar {
+  /*border: 1px orange dotted;*/
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.navigation {
+  /*border: 1px pink dotted;*/
+  flex-flow: column;
+  text-align: right;
+  float: right;
+  margin: 0px 10px -2px 0px;
+}
+.navigation li {
+  display: inline-block;
+}
+.navigation li a {
+  /*border: 1px yellow dotted;*/
+  float: left;
+  display: block;
+  color: #ccc;
   text-align: center;
+  padding: 15px 15px;
+  text-decoration: none;
+  font-size: 17px;
+  /*font-weight: bold;*/
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.navigation li a:hover {
+  background: #eee;
+  color: #333;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.navLogo {
+  /*border: 1px blue dotted;*/
+  position: fixed;
+  float: left;
+  width: 500px;
+  font-size: 50pt;
+  font-weight: bold;
+  font-style: italic;
+  font-family: 'Changa', sans-serif;
+  color: #444;
+  margin: -36px -10px -10px 120px;
+  z-index: -1;
+}
+.pageTitle {
+  /*border: 1px red dotted;*/
+  float: left;
+  width: 200px;
+  font-size: 18pt;
+  font-weight: bold;
+  font-style: italic;
   color: white;
+  margin: 10px 0px 0px 10px;
 }
-
-.App-link {
-  color: #61dafb;
+.tdBorderLeft {
+  border-left: 1px #ccc dotted;
+  padding: 0pt 0pt 0pt 10pt;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.errMsg {
+  padding: 10pt 0pt 0pt 0pt;
+  text-align: left;
+  color: red;
+}
+.postMessage {
+  width: 95%;
+  background-color: #fff;
+  border: 1px #fff solid;
+  border-radius: 5px;
+  margin: 5px 5px 5px 0px;
+  padding: 0px 15px 0px 15px;
+  text-align: left;
+  v-align: top;
+  float: left;
+  box-shadow: 1px 1px 1px 1px #ddd;
+}
+.postMessage h4 {
+  margin: 5px 5px 5px 5px;
+  padding: 0px 0px 0px 0px;
 }
