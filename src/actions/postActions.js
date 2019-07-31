@@ -26,7 +26,6 @@ export const createPost = (postData) => dispatch => {
     })).catch(e => console.warn(e));
 };
 
-
 export const deletePost = (id) => dispatch => {
     console.log('dispatch ? '+dispatch);
     fetch('http://localhost:8080/deletePost?id='+id)
@@ -36,15 +35,3 @@ export const deletePost = (id) => dispatch => {
         payload: items
     })).catch(e => console.warn(e));
 };
-
-// export function deletePost(id) {
-//     return function (dispatch) {
-//         fetch('http://localhost:8080/deletePost?id='+id)
-//         .then(res => res.json())
-//         .then(items => dispatch({
-//             type: DELETE_ITEM,
-//             payload: items
-//         })).catch(e => console.warn(e));
-//     }
-// };
-

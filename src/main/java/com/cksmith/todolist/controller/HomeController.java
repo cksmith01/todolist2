@@ -18,7 +18,7 @@ public class HomeController {
     private SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
     private int callCount;
 
-    private ArrayList<Item> items = new ArrayList<>();
+    private Stack<Item> items = new Stack<>();
     {
         items.add(new Item().setId(1).setTitle("title one").setDescription("first description and this is a cool one"));
         items.add(new Item().setId(2).setTitle("title two").setDescription("two description, what a cool thing"));
@@ -47,9 +47,12 @@ public class HomeController {
     public List<Item> deletePost(@RequestParam Integer id) throws ServletException {
         System.out.println("deletePost: "+id); // CKS:WIP
 
-        ArrayList<Item> newList = new ArrayList<>();
+        Stack<Item> newList = new Stack<>();
+        int count = 0;
         for (Item item:items) {
             if (item.getId() != id) {
+                count++;
+                item.setId(count);
                 newList.add(item);
             }
         }

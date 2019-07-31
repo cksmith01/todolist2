@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import store from './store';
 import PostList from './screens/PostList';
+import UserList from './screens/UserList';
 import About from './screens/About';
 import Home from './screens/Home';
 import Contact from './screens/Contact';
@@ -19,6 +20,7 @@ class App extends Component {
               <Route path="/" component={Home} exact />
               <Route path="/about" component={About} />
               <Route path="/posts" component={PostList} />
+              <Route path="/users" component={UserList} />
               <Route path="/contact" component={Contact} />
               <Route component={Error} />
           </Switch>
