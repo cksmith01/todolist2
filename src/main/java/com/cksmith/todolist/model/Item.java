@@ -2,15 +2,15 @@ package com.cksmith.todolist.model;
 
 public class Item {
 
-    private int id;
+    private Integer id;
     private String title;
     private String description;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public Item setId(int id) {
+    public Item setId(Integer id) {
         this.id = id;
         return this;
     }
