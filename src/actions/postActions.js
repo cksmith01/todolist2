@@ -1,8 +1,9 @@
 import { TODO_LIST, TODO_ITEM, DELETE_ITEM } from './types';
+import { BASE_URL } from '../constants';
 
 export function fetchPosts() {
     return function (dispatch) {
-        fetch('http://localhost:8080/posts')
+        fetch(BASE_URL+'posts')
         .then(res => res.json())
         .then(items => dispatch({
             type: TODO_LIST,
@@ -12,7 +13,7 @@ export function fetchPosts() {
 };
 
 export const createPost = (postData) => dispatch => {
-    fetch('http://localhost:8080/addPost', {
+    fetch(BASE_URL+'addPost', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
@@ -28,7 +29,7 @@ export const createPost = (postData) => dispatch => {
 
 export const deletePost = (id) => dispatch => {
     console.log('dispatch ? '+dispatch);
-    fetch('http://localhost:8080/deletePost?id='+id)
+    fetch(BASE_URL+'deletePost?id='+id)
     .then(res => res.json())
     .then(items => dispatch({
         type: DELETE_ITEM,

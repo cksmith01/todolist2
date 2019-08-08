@@ -9,6 +9,7 @@ class PostForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            id: '',
             title: '',
             description: ''
         }
@@ -25,8 +26,10 @@ class PostForm extends Component {
         e.preventDefault();
         const post = {
             title: this.state.title,
-            description: this.state.description
+            description: this.state.description,
+            id: this.state.id
         }
+        console.log('post.id='+post.id);
         if (post.title === "" || post.description === "") {
             $('#errMsg').html("Both fields are required");
         } else {
@@ -40,6 +43,7 @@ class PostForm extends Component {
     }
 
     clearForm() {
+        $('#id').val('');
         $('#title').val('');
         $('#description').val('');
     }
@@ -60,6 +64,7 @@ class PostForm extends Component {
                         </div>
                         <button type="submit">Save</button>
                     </fieldset>
+                    <input type="text" name="id" id="id" />
                 </form>
                 <div id="errMsg" className="errMsg"></div>
             </div>

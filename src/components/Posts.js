@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 // import { fetchPosts, deletePost } from '../actions/postActions';
 import { TODO_LIST, DELETE_ITEM } from '../actions/types';
 import {BASE_URL} from '../constants'
+import $ from 'jquery';
 
 
 class Posts extends Component {
@@ -11,6 +12,7 @@ class Posts extends Component {
     constructor(props) {
         super(props)
         this.deleteItem = this.deleteItem.bind(this);
+        this.editItem = this.editItem.bind(this);
     }
 
     componentWillMount() {
@@ -30,9 +32,23 @@ class Posts extends Component {
         this.props.deletePost(evt.target.id);
     }
 
+    editItem(evt) {
+        console.log('editItem: '+evt.target.id);
+        var item = this.props.items.filter(function(item) {
+            if (item.id == evt.target.id) {
+                return item;
+            }
+        });
+        if (item && item.length > 0) {
+            $('#id').val(item[0].id);
+            $('#title').val(item[0].title);
+            $('#description').val(item[0].description);
+        }
+    }
+
     render() {
         const postItems = this.props.items.map(post => (
-            <div key={post.id} className="postMessage">
+            <div key={post.id} className="postMessage" onClick={this.editItem} id={post.id}>
                 <h4>{post.title}</h4>
                 <p>{post.description}</p>
                 <button onClick={this.deleteItem} id={post.id}>x</button>
@@ -49,6 +65,7 @@ class Posts extends Component {
 Posts.propTypes = {
     fetchPosts: PropTypes.func.isRequired,
     deleteItem: PropTypes.func.isRequired,
+    editItem: PropTypes.func.isRequired,
     items: PropTypes.array.isRequired,
     newPost: PropTypes.object
 }
@@ -78,6 +95,14 @@ const mapDispatchToProps = (dispatch) => {
                     type: DELETE_ITEM,
                     payload: items
             })).catch(e => console.warn(e));
+        },
+        editPost: (id) => {
+            console.log('editPost: '+id)
+            if (id && id.length > 0) {
+                console.log('were here');
+
+                $('#title').val('id clicked '+id);
+            }
         }
     }
 }
