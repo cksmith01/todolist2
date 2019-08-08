@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 // import { fetchPosts, deletePost } from '../actions/postActions';
 import { TODO_LIST, DELETE_ITEM } from '../actions/types';
+import {BASE_URL} from '../constants'
 
 
 class Posts extends Component {
@@ -61,7 +62,7 @@ const mapDispatchToProps = (dispatch) => {
     return {
         fetchPosts: () => {
             console.log('fetchPosts called');
-            fetch('http://localhost:8080/posts')
+            fetch(BASE_URL+'posts')
                 .then(res => res.json())
                 .then((data) => {
                     console.log('fetch response', data);
@@ -71,7 +72,7 @@ const mapDispatchToProps = (dispatch) => {
         },
         deletePost: (id) => {
             console.log('deletePost called', id);
-            fetch('http://localhost:8080/deletePost?id='+id)
+            fetch(BASE_URL+'deletePost?id='+id)
                 .then(res => res.json())
                 .then(items => dispatch({
                     type: DELETE_ITEM,
