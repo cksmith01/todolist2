@@ -17,7 +17,7 @@ export default function (state = initialState, action) {
         case TODO_ITEM:
             return {
                 ...state,
-                item: action.payload
+                items: action.payload
             }
         case CONTACT_SEND:
             return {

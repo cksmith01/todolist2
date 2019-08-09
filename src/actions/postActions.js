@@ -1,5 +1,5 @@
 import { TODO_LIST, TODO_ITEM, DELETE_ITEM } from './types';
-import { BASE_URL } from '../constants';
+import { BASE_URL } from '../constants'
 
 export function fetchPosts() {
     return function (dispatch) {
@@ -21,9 +21,9 @@ export const createPost = (postData) => dispatch => {
         body: JSON.stringify(postData)
     })
     .then(res => res.json())
-    .then(item => dispatch({
+    .then(items => dispatch({
         type: TODO_ITEM,
-        payload: item
+        payload: items
     })).catch(e => console.warn(e));
 };
 

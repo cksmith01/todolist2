@@ -2,12 +2,12 @@ package com.cksmith.todolist.controller;
 
 import com.cksmith.todolist.model.Item;
 import com.cksmith.todolist.model.Message;
+import org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Stack;
@@ -34,12 +34,25 @@ public class HomeController {
 
     @CrossOrigin
     @PostMapping("/addPost")
-    public Item addItem(@RequestBody Item item) throws ServletException {
-        item.setId(items.size()+1);
-        items.add(item);
-        System.out.println("added item: "+item.getTitle());
+    public List<Item> addItem(@RequestBody Item item) throws ServletException {
+
+        System.out.println("addItem: "+item.getId()); // CKS:WIP 2019-08-08
+
+        if (item.getId() == null || item.getId().intValue() == 0) {
+            item.setId(items.size() + 1);
+            items.add(item);
+            System.out.println("added item: "+item.getTitle());
+        } else {
+            items.forEach(bean -> {
+                if (bean.getId().intValue() == item.getId().intValue()) {
+                    bean.setTitle(item.getTitle());
+                    bean.setDescription(item.getDescription());
+                }
+            });
+        }
+
         items.forEach(bean -> System.out.println(bean.getId()+" "+bean.getTitle()));
-        return item;
+        return items;
     }
 
     @CrossOrigin

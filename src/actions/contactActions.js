@@ -2,7 +2,7 @@ import { CONTACT_SEND } from './types';
 import { BASE_URL } from '../constants'
 
 export const sendMessage = (postData) => dispatch => {
-    fetch(BASE_URL+'sendMessage', {
+    fetch(BASE_URL+'./sendMessage', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
