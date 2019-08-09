@@ -35,9 +35,7 @@ class Posts extends Component {
     editItem(evt) {
         console.log('editItem: '+evt.target.id);
         var item = this.props.items.filter(function(item) {
-            if (item.id == evt.target.id) {
-                return item;
-            }
+            if (item.id == evt.target.id) return item;
         });
         if (item && item.length > 0) {
             $('#id').val(item[0].id);
@@ -47,11 +45,18 @@ class Posts extends Component {
     }
 
     render() {
+        const buttonBar = {
+            'textAlign': 'right',
+            width: '100%'
+        };
         const postItems = this.props.items.map(post => (
-            <div key={post.id} className="postMessage" onClick={this.editItem} id={post.id}>
-                <h4>{post.title}</h4>
+            <div key={post.id} className="postMessage" id={post.id}>
+                <h4>{post.title} ({post.id})</h4>
                 <p>{post.description}</p>
-                <button onClick={this.deleteItem} id={post.id}>x</button>
+                <div style={buttonBar}>
+                    <button onClick={this.editItem} id={post.id} className="smallButton">Edit</button>
+                    <button onClick={this.deleteItem} id={post.id} className="smallButton">Delete</button>
+                </div>
             </div>
         ));
         return (
