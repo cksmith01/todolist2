@@ -23,7 +23,9 @@ yarn-debug.log*
 yarn-error.log*
 
 # local build path
-/target
+/target/
 
 # IDE config files
-/.idea
+/.idea/**
+/.idea/
+
