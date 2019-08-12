@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createPost } from '../actions/postActions';
-import { TODO_ITEM } from "../actions/types";
+// import { TODO_ITEM } from "../actions/types";
 import $ from 'jquery';
 
 class PostForm extends Component {
@@ -70,7 +70,7 @@ class PostForm extends Component {
                             <label>Description</label>
                             <textarea name="description" rows="8" cols="60" id="description" />
                         </div>
-                        <button type="submit">Save</button>
+                        <button type="submit">Save <img className="buttonIcon" onClick={this.submit} src="./icons/round-save-24px.svg" /></button>
                         <button type="button" onClick={this.clearForm}>Clear</button>
                     </fieldset>
                     <input type="hidden" name="id" id="id" />

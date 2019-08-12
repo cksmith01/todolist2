@@ -7,6 +7,7 @@ import {BASE_URL} from '../constants'
 import $ from 'jquery';
 
 
+
 class Posts extends Component {
 
     constructor(props) {
@@ -28,11 +29,16 @@ class Posts extends Component {
     }
 
     deleteItem(evt) {
+        evt.preventDefault();
         console.log('deleteItem called', evt.target.id);
-        this.props.deletePost(evt.target.id);
+        if (window.confirm("Are you sure?")) {
+            this.props.deletePost(evt.target.id);
+        }
+        console.log('deleteItem finished', evt.target.id);
     }
 
     editItem(evt) {
+        evt.preventDefault();
         console.log('editItem: '+evt.target.id);
         var item = this.props.items.filter(function(item) {
             if (item.id == evt.target.id) return item;
@@ -45,18 +51,24 @@ class Posts extends Component {
     }
 
     render() {
+        const titleBar = {
+            'float': 'left',
+            'width': '50%',
+            'font-size': '120%'
+        };
         const buttonBar = {
-            'textAlign': 'right',
-            width: '100%'
+            'float': 'right',
+            'width': '50%',
+            'text-align': 'right'
         };
         const postItems = this.props.items.map(post => (
             <div key={post.id} className="postMessage" id={post.id}>
-                <h4>{post.title} ({post.id})</h4>
-                <p>{post.description}</p>
+                <div style={titleBar}><h4>{post.title} ({post.id})</h4></div>
                 <div style={buttonBar}>
-                    <button onClick={this.editItem} id={post.id} className="smallButton">Edit</button>
-                    <button onClick={this.deleteItem} id={post.id} className="smallButton">Delete</button>
+                <button onClick={this.editItem} id={post.id} className="smallButton"><img onClick={this.editItem} id={post.id} src="./icons/round-create-24px.svg" /></button>
+                <button onClick={this.deleteItem} id={post.id} className="smallButton"><img onClick={this.deleteItem} id={post.id} src="./icons/round-delete-24px.svg" /></button>
                 </div>
+                <p dangerouslySetInnerHTML={{__html: post.description.replace(/(?:\r\n|\r|\n)/g, '<br />')}} />
             </div>
         ));
         return (

@@ -38,6 +38,8 @@ public class HomeController {
 
         System.out.println("addItem: "+item.getId()); // CKS:WIP 2019-08-08
 
+        // TODO: 2019-08-10 we should have a filter that checks for sql injection type stuff... 
+
         if (item.getId() == null || item.getId().intValue() == 0) {
             item.setId(items.size() + 1);
             items.add(item);
@@ -51,7 +53,7 @@ public class HomeController {
             });
         }
 
-        items.forEach(bean -> System.out.println(bean.getId()+" "+bean.getTitle()));
+//        items.forEach(bean -> System.out.println(bean.getId()+"|"+bean.getTitle()+"|"+bean.getDescription()));
         return items;
     }
 
@@ -71,7 +73,7 @@ public class HomeController {
         }
         items = newList;
 
-        items.forEach(bean -> System.out.println(bean.getId()+" "+bean.getTitle()));
+        items.forEach(bean -> System.out.println(bean.getId()+"|"+bean.getTitle()+"|"+bean.getDescription()));
         return items;
     }
 
