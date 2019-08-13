@@ -54,19 +54,14 @@ class Posts extends Component {
     }
 
     render() {
-        const titleBar = {
-            'float': 'left',
-            'width': '79%',
-            'font-size': '120%'
-        };
-        const buttonBar = {
-            'float': 'right',
-            'width': '19%',
-            'text-align': 'right'
+        const tableStyle = {
+            'width': '98%',
+            'spacing': '1',
+            'padding': '1',
         };
         const postItems = this.props.items.map(post => (
             <div key={post.id} className="postMessage" id={post.id}>
-                <table width="100%">
+                <table style={tableStyle}>
                     <tr>
                         <td rowspan="2" width="10%" valign="top">
                             {post.category} <br />
@@ -75,7 +70,7 @@ class Posts extends Component {
                         <td width="75%" valign="top">
                             <h4>{post.title}</h4>
                         </td>
-                        <td width="15%" valign="top">
+                        <td width="15%" valign="top" align="right">
                             <img className="imgButton" onClick={this.editItem} id={post.id} src="./icons/round-create-24px.svg" title="Edit" />
                             <img className="imgButton" onClick={this.deleteItem} id={post.id} src="./icons/round-delete-24px.svg" title="Delete" />
                         </td>

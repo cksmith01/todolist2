@@ -46,7 +46,7 @@ class PostForm extends Component {
         }
         console.log('post='+post.id+"|"+post.title+"|"+post.description);
         if (post.title == "" || post.description == "" || post.category == "" || post.createDate == "") {
-            $('#errMsg').html("Both fields are required");
+            $('#errMsg').html("All fields are required");
         } else {
             this.props.createPost(post);
             this.clearForm();
@@ -84,7 +84,7 @@ class PostForm extends Component {
 
         return (
             <div>
-                <h3 id="formTitle">Add Post</h3>
+                <div className="formTitle"><h3 id="formTitle">Add Post</h3></div>
                 <form onSubmit={this.onSubmit} id="postForm" autocomplete="off" >
                     <fieldset>
                         <div style={divStyle}>
@@ -107,7 +107,7 @@ class PostForm extends Component {
                         </div>
                         <div>
                             <label>Description</label>
-                            <textarea name="description" rows="8" cols="60" id="description" />
+                            <textarea name="description" rows="10" cols="60" id="description" />
                         </div>
                         <div>
                             <button type="submit">Save</button>
