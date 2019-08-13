@@ -12,7 +12,7 @@ class PostList extends Component {
                     <tbody>
                         <tr>
                             <td width="60%" valign="top"><Posts /></td>
-                            <td valign="top" className="tdBorderLeft"><PostForm /></td>
+                            <td valign="top" className="editPanelRight"><PostForm /></td>
                         </tr>
                     </tbody>
                 </table>

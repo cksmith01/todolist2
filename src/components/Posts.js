@@ -46,29 +46,46 @@ class Posts extends Component {
         if (item && item.length > 0) {
             $('#id').val(item[0].id);
             $('#title').val(item[0].title);
+            $('#category').val(item[0].category);
+            $('#createDate').val(item[0].createDate);
             $('#description').val(item[0].description);
+            $('#formTitle').html("Edit Post");
         }
     }
 
     render() {
         const titleBar = {
             'float': 'left',
-            'width': '50%',
+            'width': '79%',
             'font-size': '120%'
         };
         const buttonBar = {
             'float': 'right',
-            'width': '50%',
+            'width': '19%',
             'text-align': 'right'
         };
         const postItems = this.props.items.map(post => (
             <div key={post.id} className="postMessage" id={post.id}>
-                <div style={titleBar}><h4>{post.title} ({post.id})</h4></div>
-                <div style={buttonBar}>
-                <button onClick={this.editItem} id={post.id} className="smallButton"><img onClick={this.editItem} id={post.id} src="./icons/round-create-24px.svg" /></button>
-                <button onClick={this.deleteItem} id={post.id} className="smallButton"><img onClick={this.deleteItem} id={post.id} src="./icons/round-delete-24px.svg" /></button>
-                </div>
-                <p dangerouslySetInnerHTML={{__html: post.description.replace(/(?:\r\n|\r|\n)/g, '<br />')}} />
+                <table width="100%">
+                    <tr>
+                        <td rowspan="2" width="10%" valign="top">
+                            {post.category} <br />
+                            <span className="smallGray">{post.createDate}</span>
+                        </td>
+                        <td width="75%" valign="top">
+                            <h4>{post.title}</h4>
+                        </td>
+                        <td width="15%" valign="top">
+                            <img className="imgButton" onClick={this.editItem} id={post.id} src="./icons/round-create-24px.svg" title="Edit" />
+                            <img className="imgButton" onClick={this.deleteItem} id={post.id} src="./icons/round-delete-24px.svg" title="Delete" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" width="90%" valign="top">
+                            <p dangerouslySetInnerHTML={{__html: post.description.replace(/(?:\r\n|\r|\n)/g, '<br />')}} />
+                        </td>
+                    </tr>
+                </table>
             </div>
         ));
         return (

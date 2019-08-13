@@ -15,20 +15,22 @@ import java.util.Stack;
 @RestController
 public class HomeController {
 
-    private SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+    private SimpleDateFormat _sdf = new SimpleDateFormat("HH:mm:ss");
+    private SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
     private int callCount;
 
+    String _date = sdf.format(new Date());
     private Stack<Item> items = new Stack<>();
     {
-        items.add(new Item().setId(1).setTitle("title one").setDescription("first description and this is a cool one"));
-        items.add(new Item().setId(2).setTitle("title two").setDescription("two description, what a cool thing"));
-        items.add(new Item().setId(3).setTitle("title three").setDescription("three description, man life is great"));
+        items.add(new Item().setId(1).setCategory("One").setTitle("title one").setDescription("first description and this is a cool one").setCreateDate(_date));
+        items.add(new Item().setId(2).setCategory("Two").setTitle("title two").setDescription("two description, what a cool thing").setCreateDate(_date));
+        items.add(new Item().setId(3).setCategory("Three").setTitle("title three").setDescription("three description, man life is great").setCreateDate(_date));
     }
 
     @CrossOrigin
     @GetMapping("/posts")
     public List<Item> getPosts(HttpServletRequest req) throws ServletException {
-        System.out.println("getPosts: "+sdf.format(new Date())+" items: "+items.size());
+        System.out.println("getPosts: "+_sdf.format(new Date())+" items: "+items.size());
         return items;
     }
 
@@ -49,6 +51,8 @@ public class HomeController {
                 if (bean.getId().intValue() == item.getId().intValue()) {
                     bean.setTitle(item.getTitle());
                     bean.setDescription(item.getDescription());
+                    bean.setCategory(item.getCategory());
+                    bean.setCreateDate(item.getCreateDate());
                 }
             });
         }

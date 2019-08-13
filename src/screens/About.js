@@ -7,14 +7,13 @@ class About extends Component {
         const pStyle = {
             width: '400px',
             'backgroundColor': '#fff',
-            border: '1px #fff solid',
+            border: '1px #eee solid',
             'borderRadius': '5px',
             margin: '15px 15px 15px 15px',
             padding: '15px 15px 15px 15px',
             align: 'center',
             'textAlign': 'center',
-            float: 'left',
-            'boxShadow': '1px 1px 1px 1px #ddd'
+            float: 'left'
         };
 
         return (

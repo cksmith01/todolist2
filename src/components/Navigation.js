@@ -5,7 +5,8 @@ class Navigation extends Component {
     render() {
         return (
             <div className="navBar">
-            <div className="navLogo">Blogard</div>
+            <img src="./images/tracy-zhang-JONHzkMZNZQ-unsplash.jpg" />
+            <div className="navLogo">OLAG</div>
                 <div className="pageTitle"> - {this.props.pageTitle} - </div>
                 <ul className="navigation">
                     <li><NavLink to="/">Home</NavLink></li>

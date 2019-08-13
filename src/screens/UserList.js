@@ -11,8 +11,8 @@ class UserList extends Component {
                 <table>
                     <tbody>
                         <tr>
-                            <td width="60%" valign="top"><Users /></td>
-                            <td valign="top" className="tdBorderLeft"><UserForm /></td>
+                            <td width="70%" valign="top"><Users /></td>
+                            <td valign="top" className="editPanelRight"><UserForm /></td>
                         </tr>
                     </tbody>
                 </table>
