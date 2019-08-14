@@ -2,7 +2,6 @@ package com.cksmith.todolist.controller;
 
 import com.cksmith.todolist.model.Item;
 import com.cksmith.todolist.model.Message;
-import org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;

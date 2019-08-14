@@ -95,9 +95,9 @@ class PostForm extends Component {
                             <label>Category</label>
                             <select name="category" id="category">
                                 <option>...</option>
-                                <option>One</option>
-                                <option>Two</option>
-                                <option>Three</option>
+                                <option>Category One</option>
+                                <option>Category Two</option>
+                                <option>Category Three</option>
                             </select>
                         </div>
                         <div className="clearfix"></div>
